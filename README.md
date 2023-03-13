@@ -1,32 +1,37 @@
-# STN decomposition
-Fuzzy decomposition of sound into sines, transients and noise.
+# decomposeSTN
+Fuzzy decomposition of sound into sines, transients and noise. Available both in Matlab and Python.
 
 A MATLAB app for sines-transients-noise decomposition of audio signals. Developed using App Designer in Matlab 2020b.
 
-* L. Fierro, and V. Välimäki. _"**Enhanced Fuzzy Decomposition of Sound Into Sines, Transients and Noise.**"_.  Proceedings of the 24th International Conference on Digital Audio Effects (DAFx20in21), Vienna, Austria.
+* L. Fierro, and V. Välimäki. _"**Enhanced Fuzzy Decomposition of Sound Into Sines, Transients and Noise.**"_.  Accepted for publication into the Journal of the Audio Engineering Society, 2023.
+
+Link: [ArXiv](https://arxiv.org/abs/2210.14041)
 
 ## Abstract
 
-Decomposition of sounds into their sinusoidal, transient, and noise components is an active research topic and a widely-used tool in audio processing. Multiple solutions have been proposed in recent years, using time-frequency representations to identify either horizontal and vertical structures or orientations and anisotropy in the spectrogram of the sound. 
-This is SiTraNo: an easy-to-use MATLAB application with a graphic user interface for audio decomposition that enables visualization and access to the sinusoidal, transient, and noise classes, individually. This application allows the user to choose between different well-known separation methods to analyze an input sound file, to instantaneously control and remix its spectral components, and to visually check the quality of the decomposition, before producing the desired output file. The visualization of common artifacts, such as birdies and dropouts, is easy to get in SiTraNo. 
-
-This app wants to promote experimenting with the sound decomposition process by observing the effect of variations for each spectral component on the original sound and by comparing different methods against each other, evaluating the separation quality both audibly and visually.
+The decomposition of sounds into sines, transients, and noise is a long-standing research problem in audio processing. The current solutions for this three-way separation detect either horizontal and vertical structures or anisotropy and orientations in the spectrogram to identify the properties of each spectral bin and classify it as sinusoidal, transient, or noise. This paper proposes an enhanced three-way decomposition method based on fuzzy logic, enabling soft masking while preserving the perfect reconstruction property. The proposed method allows each spectral bin to simultaneously belong to two classes, sine and noise or transient and noise. Results of a subjective listening test against three other techniques are reported, showing that the proposed decomposition yields a better or comparable quality. The main improvement appears in transient separation, which enjoys little or no loss of energy or leakage from the other components and performs well for test signals presenting strong transients.
 
 ## Dependencies
+
 ### Matlab
 * [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html)
 
-## Installation and use
-* If your version of MATLAB is 2020b or later, download the latest [release](https://github.com/himynameisfuego/SiTraNo/releases/latest). If your version is 2020a or previous, refer to this [hotfix](https://github.com/himynameisfuego/SiTraNo/files/6351972/SiTraNo_HotFix_1.0.0.1.zip) until the next release.
-* In MATLAB, navigate to the SiTraNo folder, open **SiTraNo.mlappinstall** and install. You will find SiTraNo in the "Apps" tab, in the "My apps" group. Click on it to execute the app.
-* Upon launching SiTraNo, a navigation folder should pop up, asking you to choose the input audio file.
+### Python
+* SciPy
+* NumPy
 
-## Featured decomposition methods
+## Usage
+### Recommended parameters
+Fs = 44100 (Hz)
+nWin1 = 8192 (samples)
+nWin2 = 512 (samples)
 
-* **HP**: Harmonic-Percussive separation [1]. Modes: hard mask, soft mask.
-* **HPR**: Harmonic-Percussive-Residual separation [2]. Modes: single decomposition, two-round decomposition. 
-* **ST**: Structure-Tensor-based separation [3].
-* **Fuzzy**: Fuzzy logic decomposition [4].
+### Matlab
+[xs, xt, xn] = decomposeSTN(audioInput,Fs,[nWin1 nWin2]);
+
+### Python
+import decomposeSTN as STN
+[xs, xt, xn] = STN.decSTN(audioInput,Fs,[nWin1 nWin2])
 
 ## Contributing
 Suggestions and contributions to the code are both welcomed and encouraged. Please open an issue to discuss your changes and submit a pull request.
