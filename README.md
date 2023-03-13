@@ -20,8 +20,10 @@ The decomposition of sounds into sines, transients, and noise is a long-standing
 
 ## Usage
 ### Recommended parameters
-Fs = 44100 (Hz) 
+Fs = 44100 (Hz)
+
 nWin1 = 8192 (samples) 
+
 nWin2 = 512 (samples) 
 
 ### Matlab
@@ -29,6 +31,7 @@ nWin2 = 512 (samples)
 
 ### Python
 import decomposeSTN as STN
+
 [xs, xt, xn] = STN.decSTN(audioInput,Fs,[nWin1 nWin2])
 
 ## Contributing
