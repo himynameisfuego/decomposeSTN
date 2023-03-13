@@ -23,7 +23,9 @@ The decomposition of sounds into sines, transients, and noise is a long-standing
 
 `` 
   Fs = 44100 # Hz
+  
   nWin1 = 8192 # samples 
+  
   nWin2 = 512 # samples`
 ``
 ### Matlab
