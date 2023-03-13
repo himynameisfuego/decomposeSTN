@@ -1,7 +1,5 @@
 # decomposeSTN
-Fuzzy decomposition of sound into sines, transients and noise. Available both in Matlab and Python.
-
-A MATLAB app for sines-transients-noise decomposition of audio signals. Developed using App Designer in Matlab 2020b.
+Fuzzy decomposition of sound into sines, transients and noise. Available both for Matlab and Python.
 
 * L. Fierro, and V. Välimäki. _"**Enhanced Fuzzy Decomposition of Sound Into Sines, Transients and Noise.**"_.  Accepted for publication into the Journal of the Audio Engineering Society, 2023.
 
