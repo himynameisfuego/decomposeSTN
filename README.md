@@ -33,7 +33,7 @@ The decomposition of sounds into sines, transients, and noise is a long-standing
 ### Python
 > import decomposeSTN as STN
 >
-> [xs, xt, xn] = STN.decSTN(audioInput,Fs,[nWin1 nWin2])
+> [xs, xt, xn] = STN.decSTN(audioInput,Fs,nWin1,nWin2)
 
 ## Contributing
 Suggestions and contributions to the code are both welcomed and encouraged. Please open an issue to discuss your changes and submit a pull request.
